@@ -4,7 +4,7 @@ import girl from "../../assets/images/girl.png";
 import Mobilegirl from "../../assets/images/Mobilegirl.png";
 import TeamMembersSlider from "../Team";
 import TestimonialSlider from "../testimonials";
-
+import video1 from "../../assets/video/video1.mp4"
 
 const Home = () => {
   return (
@@ -13,44 +13,27 @@ const Home = () => {
 {/* Hero Section */}
 <section
   id="home"
-  className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden text-center "
+  className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden text-center"
 >
   {/* Video Background */}
-  <iframe
-    className="absolute top-0 left-0 w-full h-full object-cover"
-    src="https://youtu.be/IsQUT9xRYSg"
-    frameBorder="0"
-    allow="autoplay; encrypted-media"
-    allowFullScreen
-    title="Hero Video Background"
-  ></iframe>
-
-  {/* Audio */}
-  <audio
-    className="absolute top-0 left-0 w-full h-full"
-    src="your-audio-file-url.mp3"  // Replace with the actual audio URL
+  <video
+    className="absolute top-0 left-0 w-full h-full object-contain sm:object-cover"
     autoPlay
     loop
-    muted={false}  // Set to true if you want to mute the audio initially
-  ></audio>
+    muted
+    playsInline
+  >
+    <source src={video1} type="video/mp4" />
+    <source src={video1} type="video/webm" />
+    <source src={video1} type="video/ogg" />
+    Your browser does not support the video tag.
+  </video>
 
   {/* Overlay for Better Readability */}
-  <div className="absolute top-0 left-0 w-full h-full bg-blue-900 bg-opacity-50"></div>
+  <div className="absolute top-0 left-0 w-full h-full bg-blue-900 bg-opacity-20"></div>
 
-  {/* Hero Content */}
-  <div className="relative z-10 px-4">
-    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight">
-      Test Your Language Skills
-    </h1>
-    <p className="text-white mt-4 text-sm sm:text-base md:text-lg lg:text-xl max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl mx-auto">
-      Choose your language and level to get started with a test!
-    </p>
-    <button className="mt-6 px-6 py-2 sm:px-8 sm:py-3 bg-blue-600 text-sm sm:text-base md:text-lg text-white rounded-full hover:bg-blue-700 transition duration-300 ease-in-out">
-      Get Started
-    </button>
-  </div>
+ 
 </section>
-
 
     
 

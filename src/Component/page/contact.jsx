@@ -6,7 +6,7 @@ const ContactForm = () => {
     <div className="min-h-screen bg-blue-400 flex items-center justify-center px-4 py-12">
       <div className="max-w-4xl w-full rounded-lg p-8 flex flex-col lg:flex-row">
         {/* Left Side with Text and Image Below */}
-        <div className="w-full lg:w-1/2 flex flex-col items-start justify-center mb-8 lg:mb-0">
+        <div className="w-full lg:w-1/2 flex flex-col items-start justify-center mb-8 lg:mb-0 mt-5">
           <h2 className="text-2xl lg:text-4xl font-semibold text-white text-center lg:text-left">
             Let's talk about everything!
           </h2>
@@ -23,7 +23,7 @@ const ContactForm = () => {
         </div>
 
         {/* Right Side Form */}
-        <div className="w-full lg:w-1/2 lg:pl-8">
+        <div className="w-full lg:w-1/2 lg:pl-8 mt-5">
           <form action="#" method="POST" className="space-y-6">
             <div>
               <label htmlFor="name" className="text-sm font-medium text-white">
