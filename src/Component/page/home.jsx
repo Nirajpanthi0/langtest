@@ -13,11 +13,11 @@ const Home = () => {
 {/* Hero Section */}
 <section
   id="home"
-  className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden text-center"
+  className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden text-center "
 >
   {/* Video Background */}
   <video
-    className="absolute top-0 left-0 w-full h-full object-contain sm:object-cover"
+    className="absolute top-0 left-0 md:w-full md:h-full object-contain sm:object-cover h-full "
     autoPlay
     loop
     muted
