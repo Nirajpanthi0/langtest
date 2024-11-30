@@ -4,37 +4,56 @@ import girl from "../../assets/images/girl.png";
 import Mobilegirl from "../../assets/images/Mobilegirl.png";
 import TeamMembersSlider from "../Team";
 import TestimonialSlider from "../testimonials";
-import Navbar from "../navbar";
-import { FaArrowDown } from "react-icons/fa"; // Corrected icon import
+
 
 const Home = () => {
   return (
     <div>
-      {/* Navbar */}
-      <Navbar className="bg-white"></Navbar>
 
-      {/* Hero Section */}
-      <section
-        id="home"
-        className="bg-blue-200 text-center py-48 px-4 relative  h-auto"
-      >
-        <h1 className="text-5xl font-semibold text-blue-800 leading-tight">
-          Test Your Language Skills
-        </h1>
-        <p className="text-blue-700 mt-6 text-lg max-w-2xl mx-auto ">
-          Choose your language and level to get started with a test!
-        </p>
-        <button className="mt-8 px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300 ease-in-out">
-          Get Started
-        </button>
+{/* Hero Section */}
+<section
+  id="home"
+  className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden text-center "
+>
+  {/* Video Background */}
+  <iframe
+    className="absolute top-0 left-0 w-full h-full object-cover"
+    src="https://youtu.be/IsQUT9xRYSg"
+    frameBorder="0"
+    allow="autoplay; encrypted-media"
+    allowFullScreen
+    title="Hero Video Background"
+  ></iframe>
 
-        {/* Down Arrow Button */}
-        <a href="#choose-us">
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate__animated animate__bounce animate__delay-4s bg-blue-400 flex items-center justify-center gap-2 p-3 rounded-full">
-            <FaArrowDown className="text-blue-800 h-6 w-6" />
-          </div>
-        </a>
-      </section>
+  {/* Audio */}
+  <audio
+    className="absolute top-0 left-0 w-full h-full"
+    src="your-audio-file-url.mp3"  // Replace with the actual audio URL
+    autoPlay
+    loop
+    muted={false}  // Set to true if you want to mute the audio initially
+  ></audio>
+
+  {/* Overlay for Better Readability */}
+  <div className="absolute top-0 left-0 w-full h-full bg-blue-900 bg-opacity-50"></div>
+
+  {/* Hero Content */}
+  <div className="relative z-10 px-4">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight">
+      Test Your Language Skills
+    </h1>
+    <p className="text-white mt-4 text-sm sm:text-base md:text-lg lg:text-xl max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl mx-auto">
+      Choose your language and level to get started with a test!
+    </p>
+    <button className="mt-6 px-6 py-2 sm:px-8 sm:py-3 bg-blue-600 text-sm sm:text-base md:text-lg text-white rounded-full hover:bg-blue-700 transition duration-300 ease-in-out">
+      Get Started
+    </button>
+  </div>
+</section>
+
+
+    
+
 
       {/* Why Choose Us Section */}
       <section className="bg-blue-500 p-8 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8 mt-28 animate__animated animate__fadeIn animate__delay-2s">

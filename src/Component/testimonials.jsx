@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-
+import profile from "../assets/images/profile.png"
 const testimonials = [
   {
-    name: "John Doe",
-    image: "",
+    name: "ram",
+    image: profile, // Placeholder image URL
     feedback: "This platform has greatly improved my language skills! I highly recommend it.",
   },
   {
-    name: "Jane Smith",
-    image: "",
+    name: "hari",
+    image: profile, // Placeholder image URL
     feedback: "An amazing resource for language learners. I enjoyed every part of it!",
   },
   {
-    name: "Alex Johnson",
-    image: "",
+    name: "krishana",
+    image:profile, // Placeholder image URL
     feedback: "The best platform for language testing and improvement. Very effective!",
   },
 ];
@@ -22,18 +21,16 @@ const testimonials = [
 const TestimonialSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1));
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
   };
 
   useEffect(() => {
-    const slideInterval = setInterval(nextSlide, 3000); // Change slide every 5 seconds
+    const slideInterval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1));
+    }, 3000); // Change slide every 3 seconds
     return () => clearInterval(slideInterval); // Clear interval on component unmount
-  }, [currentIndex]);
+  }, []);
 
   return (
     <div className="relative w-full bg-gradient-to-r from-blue-500 via-blue-500 to-blue-500 text-white  overflow-hidden h-[400px] py-12 md:mt-24">
@@ -44,7 +41,7 @@ const TestimonialSlider = () => {
         
         <div className="flex flex-col items-center">
           <img
-            src={testimonials[currentIndex].image}
+            src={testimonials[currentIndex].image || "https://via.placeholder.com/150"} // Fallback to placeholder if no image
             alt={testimonials[currentIndex].name}
             className="w-28 h-28 rounded-full mb-6 border-4 border-blue-300 shadow-lg transform hover:scale-110 transition duration-300"
           />
@@ -52,27 +49,19 @@ const TestimonialSlider = () => {
           <p className="text-lg max-w-2xl leading-relaxed opacity-90">{testimonials[currentIndex].feedback}</p>
         </div>
         
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute top-1/2 left-6 transform -translate-y-1/2 text-white hover:text-blue-300 transition duration-200"
-        >
-          <FaChevronLeft size={32} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute top-1/2 right-6 transform -translate-y-1/2 text-white hover:text-blue-300 transition duration-200"
-        >
-          <FaChevronRight size={32} />
-        </button>
+        {/* Pagination Buttons */}
+        <div className="flex justify-center mt-6 space-x-2">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-blue-300' : 'bg-blue-100'} transition duration-200`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
-export default TestimonialSlider;export const teamMembers = [
-  { name: 'lorem', role: 'lorem', image: "" },
-  { name: 'lirem', role: 'lorem', image: "" },
-  { name: 'lorem', role: 'lorem', image: "" },
-];
-
+export default TestimonialSlider;

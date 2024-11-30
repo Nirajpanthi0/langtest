@@ -1,89 +1,95 @@
+import React from "react";
+import contact from "../../assets/images/contact.png";
 
-import React, { useState } from 'react';
-
-const Contact= () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission (e.g., API call to submit form data)
-    console.log('Form submitted:', formData);
-  };
-
+const ContactForm = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-blue-50">
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg w-full">
-        <h2 className="text-2xl font-bold text-blue-700 text-center mb-6">Contact Us</h2>
+    <div className="min-h-screen bg-blue-400 flex items-center justify-center px-4 py-12">
+      <div className="max-w-4xl w-full rounded-lg p-8 flex flex-col lg:flex-row">
+        {/* Left Side with Text and Image Below */}
+        <div className="w-full lg:w-1/2 flex flex-col items-start justify-center mb-8 lg:mb-0">
+          <h2 className="text-2xl lg:text-4xl font-semibold text-white text-center lg:text-left">
+            Let's talk about everything!
+          </h2>
+          <p className="mt-4 text-white text-center lg:text-left">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Voluptas debitis, fugiat natus?
+          </p>
 
-        <form onSubmit={handleSubmit}>
-          {/* Name Field */}
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-blue-600 font-semibold mb-2">Full Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter your full name"
-            />
-          </div>
+          {/* Image placed under the text */}
+          <img
+            src={contact} // Replace with your image URL
+            alt="Illustration or image"
+            className="w-full h-auto object-cover rounded-lg mt-6"
+          />
+        </div>
 
-          {/* Email Field */}
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-blue-600 font-semibold mb-2">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter your email"
-            />
-          </div>
+        {/* Right Side Form */}
+        <div className="w-full lg:w-1/2 lg:pl-8">
+          <form action="#" method="POST" className="space-y-6">
+            <div>
+              <label htmlFor="name" className="text-sm font-medium text-white">
+                Your name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                required
+                className="mt-1 w-full px-4 py-2 border border-blue-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
 
-          {/* Message Field */}
-          <div className="mb-6">
-            <label htmlFor="message" className="block text-blue-600 font-semibold mb-2">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              value={formData.message}
-              onChange={handleChange}
-              rows="4"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Write your message here"
-            ></textarea>
-          </div>
+            <div>
+              <label htmlFor="email" className="text-sm font-medium text-white">
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                className="mt-1 w-full px-4 py-2 border border-blue-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="w-full py-2 px-4 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-200"
-          >
-            Submit
-          </button>
-        </form>
+            <div>
+              <label htmlFor="subject" className="text-sm font-medium text-white">
+                Subject
+              </label>
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                required
+                className="mt-1 w-full px-4 py-2 border border-blue-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="message" className="text-sm font-medium text-white">
+                Write your message
+              </label>
+              <textarea
+                name="message"
+                id="message"
+                required
+                rows="4"
+                className="mt-1 w-full px-4 py-2 border border-blue-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              ></textarea>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Contact;
+export default ContactForm;

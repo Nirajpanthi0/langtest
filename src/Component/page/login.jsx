@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-
-const LoginPage = () => {
+import React, { useState } from "react";
+import { FaFacebookF, FaTwitter, FaGoogle } from "react-icons/fa";
+import login from '../../assets/images/login.png'
+const Login = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
 
   const [error, setError] = useState(null);
@@ -12,7 +13,7 @@ const LoginPage = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -20,27 +21,42 @@ const LoginPage = () => {
     e.preventDefault();
     const { email, password } = formData;
 
-    // Basic validation (You can replace this with actual login logic)
-    if (email === 'nirajpanthi32@gmail.come' && password === 'password123') {
-      alert('Login successful!');
-      setError(null); // Clear any previous error
-      // Proceed with redirect or other login success actions
+    // Basic validation (replace with actual logic)
+    if (email === "nirajpanthi32@gmail.com" && password === "password123") {
+      alert("Login successful!");
+      setError(null);
     } else {
-      setError('Invalid email or password');
+      setError("Invalid email or password");
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-blue-50">
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
-        <h2 className="text-2xl font-bold text-blue-700 text-center mb-6">Login</h2>
+    <div className="flex flex-col md:flex-row min-h-screen bg-blue-400 items-center justify-center p-4 ">
+      {/* Left Side Illustration */}
+      <div className="flex flex-1 justify-center items-center p-4">
+        <img
+         src={login}
+          alt="Illustration"
+          className="max-w-full md:max-w-[80%]"
+        />
+      </div>
+
+      {/* Right Side Form */}
+      <div className="flex flex-1 flex-col justify-center items-center p-6 md:p-10 rounded-lg w-full md:w-auto">
+        <h2 className="text-3xl font-bold text-blue-600 text-center mb-6">
+          Sign In
+        </h2>
 
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
-        <form onSubmit={handleSubmit}>
-          {/* Email Field */}
+        <form onSubmit={handleSubmit} className="w-full max-w-[360px]">
           <div className="mb-4">
-            <label htmlFor="email" className="block text-blue-600 font-semibold mb-2">Email Address</label>
+            <label
+              htmlFor="email"
+              className="block  text-white font-semibold mb-2"
+            >
+              Email Address
+            </label>
             <input
               type="email"
               id="email"
@@ -48,14 +64,18 @@ const LoginPage = () => {
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter your email"
             />
           </div>
 
-          {/* Password Field */}
           <div className="mb-6">
-            <label htmlFor="password" className="block text-blue-600 font-semibold mb-2">Password</label>
+            <label
+              htmlFor="password"
+              className="block  font-semibold mb-2 text-white"
+            >
+              Password
+            </label>
             <input
               type="password"
               id="password"
@@ -63,31 +83,40 @@ const LoginPage = () => {
               required
               value={formData.password}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter your password"
             />
           </div>
 
-          {/* Submit Button */}
+          
+
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-200"
+            className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200"
           >
-            Login
+            Log In
           </button>
         </form>
 
-        <div className="mt-4 text-center">
-          <p className="text-sm text-blue-600">
-            Don't have an account?{' '}
-            <a href="/signup" className="text-blue-700 font-semibold hover:underline">
-              Sign up
-            </a>
+        <div className="mt-6 w-full max-w-[360px]">
+          <p className="text-center text-sm text-white mb-4">
+            — or log in with —
           </p>
+          <div className="flex justify-center gap-4">
+            <button className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-200">
+              <FaFacebookF />
+            </button>
+            <button className="p-3 bg-blue-400 text-white rounded-full hover:bg-blue-500 transition duration-200">
+              <FaTwitter />
+            </button>
+            <button className="p-3 bg-red-500 text-white rounded-full hover:bg-red-600 transition duration-200">
+              <FaGoogle />
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default Login;

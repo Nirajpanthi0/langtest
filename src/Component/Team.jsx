@@ -1,5 +1,22 @@
 import React, { useState } from 'react';
-import { teamMembers } from './testimonials';
+import profile from "../assets/images/profile.png"
+const teamMembers = [
+  {
+    name: 'Niraj Panthi',
+    role: 'Web Developer',
+    image: profile // Add the correct path to your image here
+  },
+  {
+    name: 'papu ram',
+    role: 'Designer',
+    image: profile
+  },
+  {
+    name: 'free coder',
+    role: 'Project Manager',
+    image: profile
+  }
+];
 
 const TeamMembersSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -13,20 +30,16 @@ const TeamMembersSlider = () => {
     setCurrentIndex((prevIndex) => (prevIndex === teamMembers.length - 1 ? 0 : prevIndex + 1));
   };
 
-  // Handle touch start to track swipe
   const handleTouchStart = (e) => {
     const touchStart = e.touches[0].clientX;
     setStartTouch(touchStart);
   };
 
-  // Handle touch end to detect swipe direction
   const handleTouchEnd = (e) => {
     const touchEnd = e.changedTouches[0].clientX;
     if (startTouch - touchEnd > 50) {
-      // Swiped left -> Next
       handleNext();
     } else if (touchEnd - startTouch > 50) {
-      // Swiped right -> Previous
       handlePrev();
     }
   };
@@ -37,14 +50,14 @@ const TeamMembersSlider = () => {
 
       <div
         className="relative max-w-4xl mx-auto flex items-center justify-center"
-        onTouchStart={handleTouchStart} // Start touch tracking
-        onTouchEnd={handleTouchEnd}   // End touch tracking
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
-        {/* Previous Button */}
+        {/* Previous Button (Visible only on md screens) */}
         <button
           onClick={handlePrev}
           aria-label="Previous Team Member"
-          className="absolute left-0 transform -translate-x-1/2 bg-blue-800 hover:bg-blue-600 text-white p-3 rounded-full shadow-md focus:outline-none transition duration-300 sm:block hidden h-16 w-16"
+          className="absolute left-0 transform -translate-x-1/2 bg-blue-800 hover:bg-blue-600 text-white p-3 rounded-full shadow-md focus:outline-none transition duration-300 hidden md:block h-16 w-16"
         >
           &#8592;
         </button>
@@ -60,11 +73,11 @@ const TeamMembersSlider = () => {
           <p className="text-blue-300 text-lg">{teamMembers[currentIndex].role}</p>
         </div>
 
-        {/* Next Button */}
+        {/* Next Button (Visible only on md screens) */}
         <button
           onClick={handleNext}
           aria-label="Next Team Member"
-          className="absolute right-0 transform translate-x-1/2 bg-blue-800 hover:bg-blue-600 text-white p-3 rounded-full shadow-md focus:outline-none transition duration-300 sm:block hidden h-16 w-16 "
+          className="absolute right-0 transform translate-x-1/2 bg-blue-800 hover:bg-blue-600 text-white p-3 rounded-full shadow-md focus:outline-none transition duration-300 hidden md:block h-16 w-16"
         >
           &#8594;
         </button>
