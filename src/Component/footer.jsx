@@ -1,43 +1,51 @@
 import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaYoutube, FaInstagram, FaFacebook, FaTiktok } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-700 text-white py-12 border-t-4 border-white">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-        
-        {/* Logo and Company Name Section */}
-        <div className="flex items-center justify-center md:justify-start md:mr-24">
-          <img 
-            src="/path-to-your-logo.png" // Replace with your logo path
-            alt="Logo"
-            className="w-12 h-12 md:w-16 md:h-16 mr-4" // Adjust size for responsiveness
-          />
-          <h2 className="text-xl md:text-2xl font-semibold">Your Company Name</h2>
-        </div>
-        
-        {/* Quick Links Section */}
-        <div>
-          <h2 className="text-2xl font-semibold mb-4">Quick Links</h2>
-          <ul className="space-y-2">
-            <li><a href="#" className="hover:underline">Home</a></li>
-            <li><a href="#" className="hover:underline">About Us</a></li>
-            <li><a href="#" className="hover:underline">Services</a></li>
-            <li><a href="#" className="hover:underline">Contact Us</a></li>
+    <footer className="bg-gray-900 py-12 mt-40 border-t-8 border-gray-900">
+      <div className="flex flex-col md:flex-row justify-between text-white px-6 md:px-12">
+        {/* Latest Section */}
+        <h1 className="text-white text-3xl sm:text-4xl mb-6 font-semibold">
+          Lang<span className='text-blue-400'>Test</span>
+        </h1>
+
+        {/* Links Section */}
+        <div className="mb-6">
+          <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-200">Links</h3>
+          <ul>
+            <li><a href="#" className="hover:text-gray-400 text-base sm:text-lg">Home</a></li>
+            <li><a href="#" className="hover:text-gray-400 text-base sm:text-lg">About</a></li>
+            <li><a href="#" className="hover:text-gray-400 text-base sm:text-lg">Contact Us</a></li>
+            <li><a href="#" className="hover:text-gray-400 text-base sm:text-lg">Test</a></li>
           </ul>
         </div>
-        
-        {/* Contact Information Section */}
-        <div className="md:ml-20">
-          <h2 className="text-2xl font-semibold mb-4">Connect with Us</h2>
-          <p>Address: 1234 Language St, City, Country</p>
-          <p>Email: contact@company.com</p>
-          <p>Phone: (123) 456-7890</p>
-          <div className="flex justify-center md:justify-start space-x-4 mt-4">
-            <a href="#" className="text-white hover:text-blue-300"><FaFacebook size={24} /></a>
-            <a href="#" className="text-white hover:text-blue-300"><FaTwitter size={24} /></a>
-            <a href="#" className="text-white hover:text-blue-300"><FaInstagram size={24} /></a>
+
+        {/* Get in Touch Section */}
+        <div className="mb-6">
+          <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-200">Get in touch</h3>
+          <div className="flex space-x-4">
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+              <FaYoutube size={22} className="text-gray-300 hover:text-red-600" />
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+              <FaInstagram size={22} className="text-gray-300 hover:text-red-600" />
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <FaFacebook size={22} className="text-gray-300 hover:text-red-600" />
+            </a>
+            <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
+              <FaTiktok size={22} className="text-gray-300 hover:text-red-600" />
+            </a>
           </div>
+        </div>
+
+        {/* Contact Us Section */}
+        <div>
+          <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-200">Contact us</h3>
+          <button className="border-4 border-white rounded-3xl text-xl sm:text-2xl px-6 py-2 text-white bg-transparent hover:bg-gray-700">
+            Email
+          </button>
         </div>
       </div>
     </footer>

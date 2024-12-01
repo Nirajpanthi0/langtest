@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaFacebookF, FaTwitter, FaGoogle } from "react-icons/fa";
-import login from '../../assets/images/login.png'
+import login from '../../assets/images/login.png';
+
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -31,19 +32,19 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-blue-400 items-center justify-center p-4 ">
+    <div className="flex flex-col md:flex-row min-h-screen bg-white items-center justify-center p-4 ">
       {/* Left Side Illustration */}
       <div className="flex flex-1 justify-center items-center p-4">
         <img
-         src={login}
+          src={login}
           alt="Illustration"
-          className="max-w-full md:max-w-[80%]"
+          className="max-w-full md:max-w-[80%] grayscale" // Applying grayscale for black and white
         />
       </div>
 
       {/* Right Side Form */}
       <div className="flex flex-1 flex-col justify-center items-center p-6 md:p-10 rounded-lg w-full md:w-auto">
-        <h2 className="text-3xl font-bold text-blue-600 text-center mb-6">
+        <h2 className="text-3xl font-bold text-black text-center mb-6">
           Sign In
         </h2>
 
@@ -53,7 +54,7 @@ const Login = () => {
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="block  text-white font-semibold mb-2"
+              className="block text-black font-semibold mb-2"
             >
               Email Address
             </label>
@@ -64,7 +65,7 @@ const Login = () => {
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
               placeholder="Enter your email"
             />
           </div>
@@ -72,7 +73,7 @@ const Login = () => {
           <div className="mb-6">
             <label
               htmlFor="password"
-              className="block  font-semibold mb-2 text-white"
+              className="block font-semibold mb-2 text-black"
             >
               Password
             </label>
@@ -83,33 +84,31 @@ const Login = () => {
               required
               value={formData.password}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
               placeholder="Enter your password"
             />
           </div>
 
-          
-
           <button
             type="submit"
-            className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200"
+            className="w-full py-2 bg-black text-white rounded-lg hover:bg-gray-700 transition duration-200"
           >
             Log In
           </button>
         </form>
 
         <div className="mt-6 w-full max-w-[360px]">
-          <p className="text-center text-sm text-white mb-4">
+          <p className="text-center text-sm text-black mb-4">
             — or log in with —
           </p>
           <div className="flex justify-center gap-4">
-            <button className="p-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-200">
+            <button className="p-3 bg-black text-white rounded-full hover:bg-gray-700 transition duration-200">
               <FaFacebookF />
             </button>
-            <button className="p-3 bg-blue-400 text-white rounded-full hover:bg-blue-500 transition duration-200">
+            <button className="p-3 bg-gray-400 text-white rounded-full hover:bg-gray-500 transition duration-200">
               <FaTwitter />
             </button>
-            <button className="p-3 bg-red-500 text-white rounded-full hover:bg-red-600 transition duration-200">
+            <button className="p-3 bg-gray-600 text-white rounded-full hover:bg-gray-700 transition duration-200">
               <FaGoogle />
             </button>
           </div>

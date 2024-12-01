@@ -31,36 +31,36 @@ function Navbar() {
       }`}
     >
       {/* Logo */}
-      <div className="text-2xl font-bold text-white ml-4 md:ml-10">
-        Lang<span className="text-blue-300">Test</span>
+      <div className="text-2xl font-bold text-black ml-4 md:ml-10">
+        Lang<span className="text-blue-600">Test</span>
       </div>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center gap-8 bg-blue-300 px-6 py-2 rounded-full">
+      <div className="hidden md:flex items-center gap-8  px-6 py-2 rounded-full bg-black   ">
         <Link
           to="/"
-          className="flex items-center gap-2 text-black font-medium hover:text-blue-600 transition"
+          className="flex items-center gap-2 text-white font-medium hover:text-gray-600 transition"
         >
           <FaHome />
           Home
         </Link>
         <Link
           to="/about"
-          className="flex items-center gap-2 text-black font-medium hover:text-blue-600 transition"
+          className="flex items-center gap-2 text-white font-medium hover:text-gray-600 transition"
         >
           <FaInfoCircle />
           About
         </Link>
         <Link
           to="/contact"
-          className="flex items-center gap-2 text-black font-medium hover:text-blue-600 transition"
+          className="flex items-center gap-2 text-white font-medium hover:text-gray-600 transition"
         >
           <FaPhoneAlt />
           Contact
         </Link>
         <Link
           to="/taketest"
-          className="flex items-center gap-2 text-black font-medium hover:text-blue-600 transition"
+          className="flex items-center gap-2 text-white font-medium hover:text-gray-600transition"
         >
           <FaClipboardList />
           Test
@@ -71,7 +71,7 @@ function Navbar() {
       <div className="hidden md:block mr-4 md:mr-10">
         <Link
           to="/login"
-          className="bg-blue-500 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-600 transition"
+          className="bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-gray-700 transition"
         >
           Login
         </Link>
@@ -79,7 +79,7 @@ function Navbar() {
 
       {/* Mobile Hamburger Icon */}
       <div
-        className="md:hidden text-white text-3xl cursor-pointer mr-4"
+        className="md:hidden text-black text-3xl cursor-pointer mr-4"
         onClick={toggleMobileMenu}
       >
         ☰
@@ -87,7 +87,7 @@ function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 w-full h-full bg-blue-600 text-white transform ${
+        className={`fixed top-0 left-0 w-full h-full bg-white text-black transform ${
           isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
         } transition-transform duration-300 p-6`}
       >
