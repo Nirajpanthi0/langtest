@@ -5,6 +5,7 @@ import Mobilegirl from "../../assets/images/Mobilegirl.png";
 import TeamMembersSlider from "../Team";
 import TestimonialSlider from "../testimonials";
 import video1 from "../../assets/video/video1.mp4";
+import Faq from "../Faq";
 
 const Home = () => {
   return (
@@ -150,6 +151,7 @@ const Home = () => {
       {/* Sliders */}
       <TeamMembersSlider />
       <TestimonialSlider />
+      <Faq></Faq>
     </div>
   );
 };
