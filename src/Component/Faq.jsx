@@ -40,7 +40,7 @@ const Faq = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-black rounded-lg p-4 bg-white "
+              className=" border border-black rounded-lg p-4 bg-white  "
             >
               <button
                 onClick={() => toggleFaq(index)}

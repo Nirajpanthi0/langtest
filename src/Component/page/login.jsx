@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaFacebookF, FaTwitter, FaGoogle } from "react-icons/fa";
 import login from "../../assets/images/login.png";
-import UserProfile from "./userprofile"; // Import the profile component
+import Sidebar from "../UserDashboard/sidebar";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -9,7 +9,6 @@ const Login = () => {
     password: "",
   });
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
   const [error, setError] = useState(null);
 
   const handleChange = (e) => {
@@ -26,16 +25,19 @@ const Login = () => {
 
     // Basic validation (replace with actual logic)
     if (email === "test@example.com" && password === "password123") {
-      setIsLoggedIn(true); // Set login state
+      // Set login state in localStorage
+      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("userName", "John Doe");  // Store the user's name
       setError(null);
+      window.location.reload();  // Reload to update the state and UI
     } else {
       setError("Invalid email or password");
     }
   };
 
   // If logged in, render the profile section
-  if (isLoggedIn) {
-    return <UserProfile />;
+  if (localStorage.getItem("isLoggedIn")) {
+    return <Sidebar />;
   }
 
   return (
