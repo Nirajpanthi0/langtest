@@ -26,7 +26,10 @@ function App() {
 function PageTransitions() {
   const location = useLocation();
 
+
+
   return (
+
     <TransitionGroup>
       <CSSTransition
         key={location.key}
@@ -42,6 +45,7 @@ function PageTransitions() {
         </Routes>
       </CSSTransition>
     </TransitionGroup>
+
   );
 }
 
