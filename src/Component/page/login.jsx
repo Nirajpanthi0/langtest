@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FaFacebookF, FaTwitter, FaGoogle } from "react-icons/fa";
 import login from "../../assets/images/login.png";
-//import DashboardLayout from "@/app/dashboard/layout";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +36,7 @@ const Login = () => {
 
   // If logged in, render the profile section
   if (localStorage.getItem("isLoggedIn")) {
-    return <DashboardLayout />;
+    
   }
 
   return (
